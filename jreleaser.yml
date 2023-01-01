@@ -1,0 +1,50 @@
+environment:
+  properties:
+    artifactsDir: out/jreleaser/assemble/helloworld/archive
+
+project:
+  name: helloworld
+  description: HelloWorld in CPP
+  longDescription: HelloWorld in CPP
+  links:
+    homepage: https://github.com/aalmiray/helloworld-cpp
+  authors:
+    - Andres Almiray
+  license: MIT
+  inceptionYear: 2022
+  stereotype: cli
+
+release:
+  github:
+    name: helloworld-cpp
+    overwrite: true
+    changelog:
+      formatted: ALWAYS
+      preset: conventional-commits
+      contributors:
+        format: '- {{contributorName}}{{#contributorUsernameAsLink}} ({{.}}){{/contributorUsernameAsLink}}'
+
+assemble:
+  archive:
+    helloworld:
+      active: ALWAYS
+      formats: [ ZIP ]
+      attachPlatform: true
+      fileSets:
+        - input: '.'
+          output: 'bin'
+          includes: [ 'helloworld{.exe,}' ]
+        - input: '.'
+          includes: [ 'LICENSE' ]
+
+distributions:
+  helloworld:
+    executable:
+      windowsExtension: exe
+    artifacts:
+      - path: '{{artifactsDir}}/{{distributionName}}-{{projectVersion}}-osx-x86_64.zip'
+        platform: 'osx-x86_64'
+      - path: '{{artifactsDir}}/{{distributionName}}-{{projectVersion}}-windows-x86_64.zip'
+        platform: 'windows-x86_64'
+      - path: '{{artifactsDir}}/{{distributionName}}-{{projectVersion}}-linux-x86_64.zip'
+        platform: 'linux-x86_64'
