@@ -37,7 +37,7 @@ jobs:
 
   release:
     name: Release
-    needs: [ precheck, assemble ]
+    needs: [ precheck, build ]
     if: endsWith(${{ needs.precheck.outputs.VERSION }}, '-SNAPSHOT')
     runs-on: ubuntu-latest
     
