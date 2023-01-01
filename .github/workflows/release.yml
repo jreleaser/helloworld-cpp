@@ -30,7 +30,7 @@ jobs:
 
   build:
     needs: [ precheck ]
-    uses: aalmiray/helloworld-cpp/.github/workflows/reusable-build.yml@main
+    uses: jreleaser/helloworld-cpp/.github/workflows/reusable-build.yml@main
     with:
       version: ${{ needs.precheck.outputs.VERSION }}
       project-version: ${{ needs.precheck.outputs.VERSION }}

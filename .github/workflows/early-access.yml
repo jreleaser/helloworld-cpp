@@ -24,13 +24,15 @@ jobs:
         id: vars
         shell: bash
         run: |
-          echo "VERSION=$(cat VERSION)" >> $GITHUB_OUTPUT
-          echo "PROJECT_VERSION=${VERSION%-*}" >> $GITHUB_OUTPUT
+          VERSION=$(cat VERSION)
+          PROJECT_VERSION=${VERSION%-*}
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "PROJECT_VERSION=$PROJECT_VERSION" >> $GITHUB_OUTPUT
 
   build:
     needs: [ precheck ]
     if: endsWith(${{ needs.precheck.outputs.VERSION }}, '-SNAPSHOT')
-    uses: aalmiray/helloworld-cpp/.github/workflows/reusable-build.yml@main
+    uses: jreleaser/helloworld-cpp/.github/workflows/reusable-build.yml@main
     with:
       version: ${{ needs.precheck.outputs.VERSION }}
       project-version: ${{ needs.precheck.outputs.PROJECT_VERSION }}

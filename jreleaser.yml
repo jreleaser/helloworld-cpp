@@ -7,7 +7,7 @@ project:
   description: HelloWorld in CPP
   longDescription: HelloWorld in CPP
   links:
-    homepage: https://github.com/aalmiray/helloworld-cpp
+    homepage: https://github.com/jreleaser/helloworld-cpp
   authors:
     - Andres Almiray
   license: APACHE-2.0
