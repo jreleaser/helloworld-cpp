@@ -10,7 +10,7 @@ project:
     homepage: https://github.com/aalmiray/helloworld-cpp
   authors:
     - Andres Almiray
-  license: MIT
+  license: APACHE-2.0
   inceptionYear: 2022
   stereotype: cli
 
