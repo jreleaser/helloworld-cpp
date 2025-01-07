@@ -12,7 +12,7 @@ project:
     - Andres Almiray
   license: APACHE-2.0
   inceptionYear: 2022
-  stereotype: cli
+  stereotype: CLI
 
 release:
   github:
@@ -42,6 +42,8 @@ distributions:
     executable:
       windowsExtension: exe
     artifacts:
+      - path: '{{artifactsDir}}/{{distributionName}}-{{projectVersion}}-osx-aarch_64.zip'
+        platform: 'osx-aarch_64'
       - path: '{{artifactsDir}}/{{distributionName}}-{{projectVersion}}-osx-x86_64.zip'
         platform: 'osx-x86_64'
       - path: '{{artifactsDir}}/{{distributionName}}-{{projectVersion}}-windows-x86_64.zip'
